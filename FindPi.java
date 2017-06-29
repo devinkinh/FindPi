@@ -19,7 +19,7 @@ public class FindPi{
     // assuming evenly divisible values are entered
     Long equal_shares = iterations/thread_amt;
 
-    while(thread_amt>0){
+    while(0<thread_amt--){
       thread_tracker.add(new Thread(()->{
         for(int i = 0; i < equal_shares;i++){
           Double x = ThreadLocalRandom.current().nextDouble(1);
@@ -29,7 +29,6 @@ public class FindPi{
           }
         }
       }));
-      thread_amt--;
     }
     try{
       for(Thread t:thread_tracker){
